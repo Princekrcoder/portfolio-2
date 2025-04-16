@@ -1,0 +1,154 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --accent: #64FFDA;
+  --secondary: #8892B0;
+  --dark: #0A192F;
+  --light: #CCD6F6;
+}
+
+body {
+  @apply bg-[#0A192F] text-[#8892B0] min-h-screen;
+}
+
+.container {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+.section {
+  @apply min-h-screen py-24 relative;
+}
+
+.card {
+  @apply bg-[#112240] p-6 rounded-lg border border-[#64FFDA]/10 
+         transition-all duration-300 hover:border-[#64FFDA]/50;
+}
+
+.btn {
+  @apply px-6 py-3 rounded-md font-medium transition-all duration-300;
+}
+
+.btn-primary {
+  @apply bg-[#64FFDA] text-[#0A192F] hover:bg-[#64FFDA]/90;
+}
+
+.btn-secondary {
+  @apply bg-transparent border border-[#64FFDA] text-[#64FFDA] 
+         hover:bg-[#64FFDA]/10;
+}
+
+.gradient-text {
+  @apply text-[#64FFDA];
+}
+
+.nav-item {
+  @apply text-[#8892B0] hover:text-[#64FFDA] transition-colors;
+}
+
+.section-title {
+  @apply text-4xl sm:text-5xl md:text-6xl font-bold mb-6 text-[#CCD6F6];
+}
+
+.section-subtitle {
+  @apply text-[#8892B0] text-lg md:text-xl max-w-2xl;
+}
+
+.tech-stack {
+  @apply flex gap-4 flex-wrap;
+}
+
+.tech-item {
+  @apply flex items-center gap-2 text-[#8892B0] hover:text-[#64FFDA] transition-colors;
+}
+
+.social-icon {
+  @apply text-2xl text-[#8892B0] hover:text-[#64FFDA] transition-colors;
+}
+
+input, textarea {
+  @apply w-full px-4 py-3 rounded-lg bg-[#112240] border border-[#64FFDA]/10 
+         focus:border-[#64FFDA] outline-none transition-all duration-300;
+}
+
+/* Hover Effects */
+.hover-lift {
+  @apply transition-transform duration-300 hover:-translate-y-2;
+}
+
+.hover-scale {
+  @apply transition-transform duration-300 hover:scale-105;
+}
+
+.hover-rotate {
+  @apply transition-transform duration-300 hover:rotate-3;
+}
+
+.hover-glow {
+  @apply transition-all duration-300 hover:shadow-lg hover:shadow-[#64FFDA]/20;
+}
+
+.hover-border {
+  @apply transition-all duration-300 hover:border-[#64FFDA];
+}
+
+.hover-text-gradient {
+  @apply transition-all duration-300 hover:text-[#64FFDA];
+}
+
+.hover-bg-gradient {
+  @apply transition-all duration-300 hover:bg-gradient-to-r hover:from-[#64FFDA]/10 hover:to-blue-500/10;
+}
+
+.hover-icon {
+  @apply transition-all duration-300 hover:text-[#64FFDA] hover:scale-110;
+}
+
+.hover-card {
+  @apply transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-[#64FFDA]/20 hover:border-[#64FFDA]/50;
+}
+
+.tag {
+  @apply px-3 py-1 rounded-full text-sm bg-[#64FFDA]/10 text-[#64FFDA];
+}
+
+.section-overlap {
+  @apply -mt-32;
+}
+
+.section-overlap + .section-overlap {
+  @apply -mt-48;
+}
+
+.section-overlap + .section-overlap + .section-overlap {
+  @apply -mt-64;
+}
+
+.section-overlap + .section-overlap + .section-overlap + .section-overlap {
+  @apply -mt-80;
+}
+
+@layer base {
+  html {
+    scroll-snap-type: y mandatory;
+    scroll-padding-top: 0;
+  }
+}
+
+@layer components {
+  .container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10;
+  }
+
+  .card::before {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-r from-[#64FFDA]/0 via-[#64FFDA]/10 to-[#64FFDA]/0;
+    transform: translateX(-100%);
+    transition: transform 0.6s ease;
+  }
+
+  .card:hover::before {
+    transform: translateX(100%);
+  }
+} 
